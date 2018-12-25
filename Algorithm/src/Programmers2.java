@@ -17,28 +17,17 @@ import java.util.HashMap;
 		어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return 하도록 solution 함수를 작성해주세요.*/
 public class Programmers2 {
 	boolean flag = true;
+	int count = 0;
 	public boolean solution(String[] phone_book) {
-		int min=99999;//최소값은 phone_book의 접두사를 얻어내기 위해서 null값이 나오지 않도록 한다.
-		HashMap<String,Integer> resultHash = new HashMap();//hashMap을 통해 key 값에 접근할 것 이다.
-		for(int i=0; i<phone_book.length; i++) {
-			min = Math.min(min, phone_book[i].length());
-			resultHash.put(phone_book[i], 0);//값을 초기화
-        }
-		for(int j=0; j<phone_book.length;j++) {
-			if(resultHash.get(phone_book[j].substring(0, min).toString())!=null) {
-				//접두사가 존재할 경우에 해당 value값에 +1 값을 함.
-				//따라서 정상적인 값이면 value는 모두 1
-				resultHash.put(phone_book[j].substring(0, min), resultHash.get(phone_book[j].substring(0, min).toString())+1);
+		flag = false;
+		for(int i=0; i<phone_book.length;i++) {
+			for(int j=0; j<phone_book.length; j++) {
+				if(phone_book[i].startsWith(phone_book[j])) {
+					flag = true;
+				}
 			}
 		}
 		
-		resultHash.forEach((k,v)->{
-			//hash를 검사함.
-			//value가 1보다 크면 접두사로 사용.
-			if(v>1) {
-				flag = false;
-			}
-		});
         return flag;
     }
 }
