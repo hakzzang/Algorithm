@@ -27,6 +27,6 @@ public class ExamplePriorityQueue {
 			System.out.print(value); 
 		});
 		System.out.println(String.format(" size: %d", queue.size())); 
-		
+		System.out.println("test");
 	}
 }
