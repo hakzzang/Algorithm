@@ -18,9 +18,14 @@ public class Quiz2609 {
 		Scanner scanner = new Scanner(System.in);
 		int num1 = scanner.nextInt();
 		int num2 = scanner.nextInt();
-		//유클리드 호제법이라는 공식이 있지만, 외우는게 싫음
+		//유클리드 호제법이라는 공식이 있지만
+		//내가 생각하는 것은 두 값을 나머지 한 값이 0일 경우
+		//최소 공배수라고 생각을 합니다. 그렇기 때문에 제귀를 사용한다면,
+		//numMin값을 구할 수 있을 것이고 
+		//최소공배수는 a * b / numMin 값이라고 생각합니다.
 		// 10 12
 		// 10 12
+		
 		// 5 6 2 = 60
 		Quiz2609 quiz = new Quiz2609();
 		int numMin = quiz.getMinNumber(num1, num2);
@@ -32,7 +37,8 @@ public class Quiz2609 {
 	public int getMinNumber(int num1, int num2) {
 		int numMin = Math.min(num1, num2);
 		int numMax = Math.max(num1, num2);
-		int returnNum = numMax % numMin == 0 ? numMin : getMinNumber(numMin, numMax %numMin);
+		int returnNum = numMax % numMin == 0 ?
+				numMin : getMinNumber(numMin, numMax %numMin);
 		return returnNum;
 	}
 }
