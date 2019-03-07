@@ -7,8 +7,9 @@ import java.util.Queue;
 class Programmers2{
 	public static void main(String[] args) {
 		int[] s = {2, 1, 3, 2};
-		int answer =solution(s, s[2]);
-		System.out.println(answer);
+		/*
+		 * int answer =solution(s, s[2]); System.out.println(answer);
+		 */
 	}
     public int solution(int[] priorities, int location) {
         int answer = 0;
